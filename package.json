@@ -1,0 +1,17 @@
+{
+  "name": "recursive-directory-maker",
+  "version": "0.1.0",
+  "description": "Creates nested directory paths with configurable mode and race-safe handling when paths already exist.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
