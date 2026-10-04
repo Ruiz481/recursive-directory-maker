@@ -22,3 +22,10 @@ Node's `fs.mkdir(..., { recursive: true })` exists, but it gives no signal back 
 - If a path component exists as a regular file (not a directory), `makeDirs` throws. It does not attempt to remove or overwrite the file.
 - When `root` is provided, `path` must be relative. Passing an absolute path alongside a `root` is treated as a programmer error and rejected, because it usually means the caller is trying to escape an intended sandbox.
 - The `mode` option sets POSIX permission bits on created directories only. On Windows it is accepted but has no effect, matching Node's own behaviour.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
